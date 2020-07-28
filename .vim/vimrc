@@ -1,0 +1,15 @@
+syntax on "  구문강조 사용
+
+set number " 행번호 표시, set nu 도 가능
+set tabstop=4 " Tab 너비
+set shiftwidth=4 " 자동 인덴트할 때 너비
+set smartindent " 스마트한 들여쓰기
+set wrap
+set laststatus=2 " 상태바 표시를 항상한다
+set statusline=\ %<%l:%v\ [%P]%=%a\ %h%m%r\ %F\
+set autoindent " 자동 들여쓰기
+set ruler " 화면 우측 하단에 현재 커서의 위치(줄,칸) 표시
+set showmatch " 일치하는 괄호 하이라이팅
+set langmap=ㅁa,ㅠb,ㅊc,ㅇd,ㄷe,ㄹf,ㅎg,ㅗh,ㅑi,ㅓj,ㅏk,ㅣl,ㅡm,ㅜn,ㅐo,ㅔp,ㅂq,ㄱr,ㄴs,ㅅt,ㅕu,ㅍv,ㅈw,ㅌx,ㅛy,ㅋz
+
+colorscheme codedark
