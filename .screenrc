@@ -1,0 +1,40 @@
+#터미널의 스크롤기능 이용
+termcapinfo xterm* ti@:te@
+startup_message off
+#hardstatus string "%{.bW}%-w%{.rW}%n*%t%{-}%+w %= %c ${USER}@%H"
+
+# 스크롤할 수 있는 과거 라인 수. 기본값은 100
+defscrollback 5000
+# 터미널 마지막 줄에, 전체 윈도우 리스트를 표시하고, 현재 활성화된 윈도우에 빨간색 하일라이트
+hardstatus on
+hardstatus alwayslastline
+#hardstatus lastline
+#hardstatus string '%{= Kd} %{= Kd}%-w%{= Kr}[%{= KW}%n %t%{= Kr}]%{= Kd}%+w %-= %{KG} %H%{KW}|%{KY}%101`%{KW}|%D %M %d %Y%{= Kc} %C%A%{-}'
+#hardstatus string "${USER}@%H %L=%{.KW}%-w%{= KR}[%45L>%{= KW}%n %t%{= KR}]%{-}%+w%-15=%=|%m/%d %C%a"
+hardstatus string "${USER}@%H %L=%{.KW}%-w%{= KR}[%45L>%{= KW}%n %t%{= KR}]%{-}%+w%-15=%=|%S"
+#hardstatus string "%H - %n:%t%? - %h%?"
+
+# 각 윈도우마다 다시 캡션을 띄워서 현재 윈도우의 정보를 볼 수 있다
+# 내 경우는 현재 윈도우의 작업 디렉토리를 출력하도록 하였음
+#caption always "%3n %t%? @%u%?%? [%h]%?%=%C%a"
+#caption always "%-Lw%{= BW}%50>%n%f* %t%{-}%+Lw%<"
+#caption always "%{= Kd}%?%F%{= Wk}%?%u %?%F[%?%n %t%?%F]%?%? [%h]%?"
+#caption always "%{dy}%H %-21=%Y.%m.%d %D %0c"
+
+# 윈도우를 열 때 모니터링을 기본적으로 켬
+defmonitor on
+defsilence off
+
+# alt+PgUp 누르면 곧바로 카피 모드 들어가고, alt+PgUp, alt+PgDown 으로 스크롤
+bindkey "^[^[[5~" eval "copy" "stuff ^u"
+bindkey -m "^[^[[5~" stuff ^u
+bindkey -m "^[^[[6~" stuff ^d
+
+# 윈도우들 간의 이동을 ctrl+좌우 커서키로
+bindkey "^[[D" prev
+bindkey "^[[C" next
+
+# 윈도우들 간의 이동을 alt+좌우 커서키로
+bindkey "^[^[OD" prev
+bindkey "^[^[OC" next
+
